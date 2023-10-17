@@ -57,7 +57,7 @@ function App() {
     const init = async () => {
         //wait for firebase
         // setTimeout(() => setLoading(false), 2000);// 2초뒤 로딩완료
-        await auth.authStateReady(); // 파이어베이스에서 없는 함수 인듯?
+        await auth.authStateReady();
         setLoading(false);
     };
 

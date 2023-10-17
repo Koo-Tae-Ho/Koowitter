@@ -11,7 +11,7 @@ import {
     Wrapper,
     Form,
 } from "../components/auth-components";
-import GithubButton from "../components/github-btn";
+import SocicalButton from "../components/sociallogin-btn";
 
 export default function CreateAccount() {
     const [isLoading, setLoading] = useState(false);
@@ -108,7 +108,7 @@ export default function CreateAccount() {
             <Switcher>
                 Already have an account? <Link to="/login">Log In &rarr;</Link>
             </Switcher>
-            <GithubButton />
+            <SocicalButton />
         </Wrapper>
     );
 }
