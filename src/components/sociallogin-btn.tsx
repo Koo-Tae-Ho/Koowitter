@@ -2,7 +2,7 @@ import {
     GithubAuthProvider,
     GoogleAuthProvider,
     signInWithPopup,
-    signInWithRedirect,
+    // signInWithRedirect,
 } from "firebase/auth";
 import styled from "styled-components";
 import { auth } from "../firebase";

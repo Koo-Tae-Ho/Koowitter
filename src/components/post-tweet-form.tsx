@@ -29,7 +29,7 @@ export default function PostTweetForm() {
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const user = auth.currentUser;
-        if (!user || isLoading || tweet === "" || tweet.length > 180) return;
+        if (!user || isLoading || tweet === "" || tweet.length > 150) return;
         try {
             setIsloading(true);
             const doc = await addDoc(collection(db, "tweets"), {
@@ -42,7 +42,7 @@ export default function PostTweetForm() {
             if (file) {
                 const locationRef = ref(
                     storage,
-                    `tweets/${user.uid}-${user.displayName}/${doc.id}`
+                    `tweets/${user.uid}/${doc.id}`
                 ); //파일이 저장 될 URL을 선택할 수 있음.
                 const result = await uploadBytes(locationRef, file);
                 const url = await getDownloadURL(result.ref); //getDownloadURL의 결과값은 string을 반환하는 promise
@@ -63,7 +63,7 @@ export default function PostTweetForm() {
             <TextArea
                 required
                 rows={5}
-                maxLength={180}
+                maxLength={150}
                 onChange={onChange}
                 value={tweet}
                 placeholder="What is happening?"
@@ -90,7 +90,7 @@ const Form = styled.form`
     flex-direction: column;
     gap: 10px;
 `;
-const TextArea = styled.textarea`
+export const TextArea = styled.textarea`
     border: 2px solid white;
     padding: 20px;
     border-radius: 16px;
